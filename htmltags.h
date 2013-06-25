@@ -1,7 +1,7 @@
 #ifndef HTMLTAGS_H_
 #define HTMLTAGS_H_
 
-static const char **html_tags {
+static const char **html5_tags {
 	"!--...--", //Defines a comment
 	"!DOCTYPE", //Defines the document type
 	"a", //Defines a hyperlink
@@ -62,7 +62,7 @@ static const char **html_tags {
 	"hgroup", //Groups heading (<h1> to <h6>) elements
 	"hr", // Defines a thematic change in the content
 	"html", //Defines the root of an HTML document
-	"i", //Defines a part of text in an alternate voice or mood
+	"i", //Defines a part of text in an alternate voice or mood, italic
 	"iframe", //Defines an inline frame
 	"img", //Defines an image
 	"input", //Defines an input control

@@ -19,7 +19,7 @@
 
 /* Notice: We need to include parsetree.h first because wikiparse.tab.h will
  * attempt to use the 'Node' type defined therein. */
-#include "parsetree.h"
+#include "common.h"
 #include "wikiparse.tab.h"
 
 /* Tells flex to stop processing input when EOF is reached. */

@@ -9,7 +9,7 @@
  **                  Originally written 2004 by Timwi
  **/
 
-#include "parsetree.h"
+#include "htmltree.h"
 #include "fb_defines.h"
 #include <stdlib.h>
 #include <string.h>
@@ -789,14 +789,14 @@ void outputNode (Node node)
 
         node->type == LinkTarget    ? "linktarget"  :
         node->type == LinkOption    ? "linkoption"  :
-        node->type == Article       ? "article"     :
-        node->type == Paragraph     ? "paragraph"   :
-        node->type == PreBlock      ? "preblock"    :
+        node->type == Article       ? "div id=\"article\""     :   	// the whole article is enclosed with div
+        node->type == Paragraph     ? "p"   : 							// paragraph
+        node->type == PreBlock      ? "div id=\"preblock\""    : // preblock
         node->type == PreLine       ? "preline"     :
         node->type == ListItem      ? "listitem"    :
-        node->type == Bold          ? "bold"        :
+        node->type == Bold          ? "bold"        :  					// bold
         node->type == Italics       ? "italics"     :
-        node->type == Comment       ? "comment"     :
+        node->type == Comment       ? "comment"     :			//
         node->type == Template      ? "template"    :
         node->type == TemplateVar   ? "templatevar" :
 
@@ -840,11 +840,15 @@ void outputHTMLHelper (Node node)
 
     switch (node->type)
     {
-        case Heading:
-            sprintf (tmpstr, "<h%d>", node->data.num);
+        case Heading:   // section ?
+//            sprintf (tmpstr, "<h%d>", node->data.num);
+        	switch (node->data.num) {
+
+        	}
             fb_write_to_buffer (tmpstr);
             outputNode (node); /* will not output the tag */
-            sprintf (tmpstr, "</h%d>", node->data.num);
+            strcpy(tmpstr, "</div")
+//            sprintf (tmpstr, "</h%d>", node->data.num);
             fb_write_to_buffer (tmpstr);
             break;
 

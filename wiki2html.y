@@ -13,7 +13,7 @@
 
 #include <string.h>
 #include <stdio.h>
-#include "parsetree.h"
+#include "htmltree.h"
 #include "fb_defines.h"
 int yyerror() { printf ("\n\nSYNTAX ERROR.\n\n"); }
 

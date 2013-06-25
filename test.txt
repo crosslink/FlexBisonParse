@@ -1,5 +1,7 @@
 This is a [http] link.
 
+== Section ==
+
 Bullet list:
 * first entry
 * second entry

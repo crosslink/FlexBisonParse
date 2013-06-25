@@ -10,7 +10,7 @@ wikiparse:
 html2xml:
 	g++ -o html2xml html2xml.cpp
 	
-wiki2html: wiki2html.tab.c
+wiki2html: wikiparse.tab.c wiki2html.tab.c lex.yy.c
 	gcc -o wiki2html wiki2html.tab.c htmltree.c lex.yy.c
 
 lex.yy.c : wikilex.l
@@ -26,6 +26,8 @@ clean :
 	rm -f php_wikiparse.so
 	rm -f wikiparse.tab.c
 	rm -f wikiparse.tab.h
+	rm -f wiki2html.tab.c
+	rm -f wiki2html.tab.h	
 	rm -f wikiparse_wrap.c
 	rm -f lex.yy.c
 
