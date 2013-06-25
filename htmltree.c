@@ -841,10 +841,11 @@ void outputHTMLHelper (Node node)
     switch (node->type)
     {
         case Heading:
-            sprintf (tmpstr, "<heading level='%d'>", node->data.num);
+            sprintf (tmpstr, "<h%d>", node->data.num);
             fb_write_to_buffer (tmpstr);
             outputNode (node); /* will not output the tag */
-            fb_write_to_buffer ("</heading>");
+            sprintf (tmpstr, "</h%d>", node->data.num);
+            fb_write_to_buffer (tmpstr);
             break;
 
         case TextToken:
